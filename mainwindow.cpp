@@ -17,5 +17,8 @@ MainWindow::~MainWindow()
 
 void MainWindow::handleButton()
 {
-    ui->TEST->setText("BOTON PULSADO");
+    QString Text = ui->TEST->text();
+    double Mass = (Text.toDouble()/7000*32174);
+    QString Answer = QString::number(Mass);
+    ui->label_3->setText(("Bullet mass is: "+Answer));
 }
