@@ -17,8 +17,15 @@ MainWindow::~MainWindow()
 
 void MainWindow::handleButton()
 {
-    QString Text = ui->TEST->text();
-    double Mass = (Text.toDouble()/7000*32174);
+    QString TextMass = ui->GrainText->text();
+    QString TextVelocity = ui->VelocityText->text();
+    double Mass = (TextMass.toDouble()/7000*32174);
+    double Momentum = Mass * TextVelocity.toDouble();
+    double Energy = Momentum * (TextVelocity.toDouble()/2);
     QString Answer = QString::number(Mass);
-    ui->label_3->setText(("Bullet mass is: "+Answer));
+    QString Answer2 = QString::number(Momentum);
+    QString Answer3 = QString::number(Energy);
+    ui->BulletMassLabel->setText(("Bullet mass is: "+Answer));
+    ui->MomentumLabel->setText("Momentum(lb/s): "+Answer2);
+    ui->KineticEnergyLabel->setText("Kinetic Energy: "+Answer3);
 }
