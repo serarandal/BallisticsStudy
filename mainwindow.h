@@ -16,9 +16,11 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    float getCorrectionFactor();
 
 private:
     Ui::MainWindow *ui;
     void handleButton();
+    float CorrectionFactor = 0.25;
 };
 #endif // MAINWINDOW_H
