@@ -17,6 +17,9 @@ set(PROJECT_SOURCES
         mainwindow.cpp
         mainwindow.h
         mainwindow.ui
+        secondwindow.h
+        secondwindow.cpp
+        secondwindow.ui
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
@@ -38,6 +41,8 @@ else()
     else()
         add_executable(untitled
             ${PROJECT_SOURCES}
+            secondwindow.h secondwindow.cpp
+            secondwindow.ui
         )
     endif()
 endif()

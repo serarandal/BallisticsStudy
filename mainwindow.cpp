@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
+#include "secondwindow.h"
 #include <cmath>
 
 MainWindow::MainWindow(QWidget *parent)
@@ -7,8 +8,8 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    connect(ui->pushButton, &QPushButton::released, this, &MainWindow::handleButton);
-
+    connect(ui->pushButton, &QPushButton::released, this, &MainWindow::handlePushButton);
+    connect(ui->toolButton,&QToolButton::released,this,&MainWindow::handleToolButton);
 }
 
 MainWindow::~MainWindow()
@@ -20,8 +21,11 @@ float MainWindow::getCorrectionFactor()
 {
    return this->CorrectionFactor;
 }
-
-void MainWindow::handleButton()
+//SecondWindow MainWindow::getSecondWindow()
+//{
+//    return SecondWindow;
+//}
+void MainWindow::handlePushButton()
 {
     QString TextMass = ui->GrainText->text();
     QString TextBoreDiameter = ui->BoreDiameterText->text();
@@ -44,5 +48,12 @@ void MainWindow::handleButton()
     ui->KineticEnergyLabel->setText("Kinetic energy is: "+ BulletEnergyAnswer);
     ui->BulletMomentumLabel->setText("Bullet momentum is: "+ BulletMomentumAnswer);
 
+}
+
+void MainWindow::handleToolButton()
+{
+    SecondWindow w;
+    //while (true){
+        w.show();//}
 
 }
